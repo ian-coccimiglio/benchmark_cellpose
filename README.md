@@ -5,6 +5,12 @@ Benchmarking runtimes for Cellpose, using different GPU architectures compared t
 - First, run crop\_image\_centers.py to generate a series of square crops from the test image.
 - Next, run successive\_crop\_benchmark.py to process all the image crops, and generate results and figures
 
+From the main repository, you can run these from a terminal
+```python
+python crop_image_centers.py
+python successive_crop_benchmark.py
+```
+
 ## Results
 Two figures and one CSV file will be generated. Below results are from a Linux Desktop running an RTX 4070. 
 
