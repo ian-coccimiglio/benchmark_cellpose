@@ -181,6 +181,8 @@ for proc in df.index.get_level_values(0).unique():
         else:
             make_text(calc_time, length, neg=False)
 
+plt.savefig("figures/GPU_vs_CPU.png")
+
 
 percentage_improvement = df_gpu["Calculation_Time"].div(
     df_cpu["Calculation_Time"]
@@ -193,6 +195,7 @@ ax.set_ylabel("GPU Evaluation time")
 ax.set_xlabel("Image Length (pixels)")
 ax.yaxis.set_major_formatter(PercentFormatter(1))
 ax.set_ylim([0, 1])
+plt.savefig("figures/Percentage_Improvement.png")
 
 # Saving results
 df.to_csv(f"results/Successive_Crop_Results_{model_name}.csv")
