@@ -170,6 +170,7 @@ def make_text(calc_time, length, neg):
 
 
 plt.ylim([-10, 120])
+plt.xlabel("Image Length (Sqrt Area)")
 
 for proc in df.index.get_level_values(0).unique():
     gdf = df.loc[proc][["Calculation_Time", "Length"]]
@@ -180,19 +181,18 @@ for proc in df.index.get_level_values(0).unique():
             make_text(calc_time, length, neg=True)
         else:
             make_text(calc_time, length, neg=False)
-
+plt.title("Absolute Processing Time")
 plt.savefig("figures/GPU_vs_CPU.png")
-
 
 percentage_improvement = df_gpu["Calculation_Time"].div(
     df_cpu["Calculation_Time"]
 )
-#%%
+# %%
 fig, ax = plt.subplots(ncols=1, nrows=1, figsize=(15, 8))
 ax.plot(df_gpu["Length"], percentage_improvement)
-ax.set_title("GPU Relative to CPU")
-ax.set_ylabel("GPU Evaluation time")
-ax.set_xlabel("Image Length (pixels)")
+ax.set_title("Execution time")
+ax.set_ylabel("GPU evaluation time (Percentage of CPU)")
+ax.set_xlabel("Image Length (Sqrt Area)")
 ax.yaxis.set_major_formatter(PercentFormatter(1))
 ax.set_ylim([0, 1])
 plt.savefig("figures/Percentage_Improvement.png")
