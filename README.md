@@ -1,14 +1,16 @@
 ## A Benchmark for Cellpose
 Benchmarking runtimes for Cellpose, using different GPU architectures compared to CPU.
 
-## Usage:
-First, run crop\_image\_centers.py to generate a series of square crops from the test image.
-Next, run successive\_crop\_benchmark.py to generate a series of 
+## Usage
+- First, run crop\_image\_centers.py to generate a series of square crops from the test image.
+- Next, run successive\_crop\_benchmark.py to process all the image crops, and generate results and figures
 
 ## Results
-Two images and one CSV file will be generated
-[GPU CPU]("results/GPU_vs_CPU.png")
-[Percentage Improvement](results/Percentage_Improvement.png")
+Two figures and one CSV file will be generated. 
+
+GPU to CPU Comparison             |  Percentage Improvement           |
+:-------------------------:|:-------------------------:|
+![GPU CPU](figures/GPU_vs_CPU.png)| ![Percentage Improvement](figures/Percentage_Improvement.png)
 
 
 ## Environmental requirements
