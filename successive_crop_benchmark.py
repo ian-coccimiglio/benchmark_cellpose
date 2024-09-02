@@ -187,8 +187,8 @@ plt.savefig("figures/GPU_vs_CPU.png")
 percentage_improvement = df_gpu["Calculation_Time"].div(
     df_cpu["Calculation_Time"]
 )
-
-fig, ax = plt.subplots(ncols=1, nrows=1, figsize=(12, 6))
+#%%
+fig, ax = plt.subplots(ncols=1, nrows=1, figsize=(15, 8))
 ax.plot(df_gpu["Length"], percentage_improvement)
 ax.set_title("GPU Relative to CPU")
 ax.set_ylabel("GPU Evaluation time")
