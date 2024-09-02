@@ -6,7 +6,7 @@ Benchmarking runtimes for Cellpose, using different GPU architectures compared t
 - Next, run successive\_crop\_benchmark.py to process all the image crops, and generate results and figures
 
 ## Results
-Two figures and one CSV file will be generated. 
+Two figures and one CSV file will be generated. Below results are from a Linux Desktop running an RTX 4070. 
 
 GPU to CPU Comparison             |  Percentage Improvement           |
 :-------------------------:|:-------------------------:|

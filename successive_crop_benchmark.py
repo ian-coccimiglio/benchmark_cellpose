@@ -142,7 +142,7 @@ df = pd.concat(
     keys=("CPU", "GPU"),
     names=["Processor", "Iteration"],
 )
-
+# %%
 plt.figure(figsize=(15, 8))
 
 sns.set(font_scale=1.2)
@@ -181,7 +181,7 @@ for proc in df.index.get_level_values(0).unique():
             make_text(calc_time, length, neg=True)
         else:
             make_text(calc_time, length, neg=False)
-plt.title("Absolute Processing Time")
+plt.title("GPU/CPU Difference in Absolute Processing Time")
 plt.savefig("figures/GPU_vs_CPU.png")
 
 percentage_improvement = df_gpu["Calculation_Time"].div(
@@ -190,12 +190,12 @@ percentage_improvement = df_gpu["Calculation_Time"].div(
 # %%
 fig, ax = plt.subplots(ncols=1, nrows=1, figsize=(15, 8))
 ax.plot(df_gpu["Length"], percentage_improvement)
-ax.set_title("Execution time")
+ax.set_title("Relative Performance At Different Image Sizes")
 ax.set_ylabel("GPU evaluation time (Percentage of CPU)")
 ax.set_xlabel("Image Length (Sqrt Area)")
 ax.yaxis.set_major_formatter(PercentFormatter(1))
 ax.set_ylim([0, 1])
 plt.savefig("figures/Percentage_Improvement.png")
-
+# %%
 # Saving results
 df.to_csv(f"results/Successive_Crop_Results_{model_name}.csv")
